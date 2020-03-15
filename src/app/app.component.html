@@ -67,6 +67,13 @@
           </div>
         </div>
         <button class="btn btn-primary" type="submit">Register</button>
+        <button
+          class="btn btn-secondary ml-3"
+          type="button"
+          (click)="loadApiData()"
+        >
+          Load Data
+        </button>
       </form>
     </div>
     {{ registrationForm.value | json }}
