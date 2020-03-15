@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+// import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,41 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class AppComponent {
 
-  registrationForm = new FormGroup({
-    userName: new FormControl('vzan2012'),
-    password: new FormControl(''),
-    confirmPassword: new FormControl(''),
-    address: new FormGroup({
-      city: new FormControl(''),
-      state: new FormControl(''),
-      postalCode: new FormControl('')
+  get userName() {
+    return this.registrationForm.get('userName');
+  }
+
+  get password() {
+    return this.registrationForm.get('password');
+  }
+
+  get confirmPassword() {
+    return this.registrationForm.get('confirmPassword');
+  }
+
+  constructor(private _fb: FormBuilder) { }
+
+  registrationForm = this._fb.group({
+    userName: ['', [Validators.required, Validators.minLength(6)]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+    address: this._fb.group({
+      city: [''],
+      state: [''],
+      postalCode: ['']
     })
   });
+
+  // registrationForm = new FormGroup({
+  //   userName: new FormControl('vzan2012'),
+  //   password: new FormControl(''),
+  //   confirmPassword: new FormControl(''),
+  //   address: new FormGroup({
+  //     city: new FormControl(''),
+  //     state: new FormControl(''),
+  //     postalCode: new FormControl('')
+  //   })
+  // });
 
   loadApiData() {
     // this.registrationForm.setValue({
