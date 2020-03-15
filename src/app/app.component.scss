@@ -1,0 +1,17 @@
+.form-box {
+  position: relative;
+  margin-top: 3%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+
+  h2 {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  form {
+    button {
+      margin-bottom: 15px;
+    }
+  }
+}
