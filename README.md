@@ -1,6 +1,6 @@
 # ReactiveForms
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+This project has a simple user reactive form example with validation practised developed using Angular. The Project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
 
 ## Development server
 
