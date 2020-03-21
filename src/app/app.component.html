@@ -27,6 +27,13 @@
               [class.d-none]="userName.valid || userName.untouched"
               >Username must be atleast 3 characters.</small
             >
+            <small
+              *ngIf="userName.errors?.forbiddenName"
+              class="text-danger"
+              [class.d-none]="userName.valid || userName.untouched"
+              >{{ userName.errors?.forbiddenName.value }} Username not
+              allowed.</small
+            >
           </div>
         </div>
         <div class="form-group">
