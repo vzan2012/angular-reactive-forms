@@ -3,7 +3,7 @@
     <div class="col-xl-6 offset-xl-3 form-box">
       <h2>Registration Form</h2>
 
-      <form action="" [formGroup]="registrationForm">
+      <form action="" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="">Username</label
           ><input
@@ -141,7 +141,13 @@
             />
           </div>
         </div>
-        <button class="btn btn-primary" type="submit">Register</button>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!registrationForm.value"
+        >
+          Register
+        </button>
         <button
           class="btn btn-secondary ml-3"
           type="button"

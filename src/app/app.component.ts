@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 import { forbiddenNameValidator } from './shared/user-name.validator';
 import { PasswordValidator } from './shared/password.validator';
+import { RegistrationService } from './registration.service';
 
 @Component({
   selector: 'app-root',
@@ -65,7 +66,7 @@ export class AppComponent implements OnInit {
     })
   }
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(private _fb: FormBuilder, private _registrationService: RegistrationService) { }
 
 
 
@@ -82,6 +83,11 @@ export class AppComponent implements OnInit {
     })
   }
 
+
+  onSubmit() {
+    // console.log(this.registrationForm.value);
+    this._registrationService.register(this.registrationForm.value).subscribe(resp => console.log('Success!', resp), err => console.log('Error!', err))
+  }
 
 
 }
